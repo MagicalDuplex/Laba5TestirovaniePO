@@ -1,0 +1,160 @@
+﻿@model HumanResourcesDepartment.HumanResourcesDepartment
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h4 class="display-3">Отдел кадров</h4>
+    <h3>Работники: <span id="count">@Model.Count</span></h3>
+    <table id="workers" class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Возраст</th>
+                <th scope="col">Паспорт</th>
+                <th scope="col">Число отработанных месяцев</th>
+                <th scope="col">Должностной ранг</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var worker in Model.Workers)
+            {
+                <tr>
+                    <td>@worker.name</td>
+                    <td>@worker.secondname</td>
+                    <td>@worker.age</td>
+                    <td>@worker.passport</td>
+                    <td>@worker.monthsWorkedOut</td>
+                    <td>@worker.position</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="container bg-light">
+
+        <div class="row">
+            <div class="col-sm m-1">
+                <div class="row m-3">
+                    <div class="col-sm">
+                        <h4>Поля</h4>
+                    </div>
+                </div>
+
+                <form asp-controller="Home" asp-action="Operation" method="post" autocomplete="off">
+                    <div class="form-group row">
+                        
+                        <input name="addName" class="form-control" id="addName" placeholder="Введите имя">
+                    </div>
+                    <div class="form-group row">
+                        
+                        <input name="addSecondName" class="form-control" id="addSecondName" placeholder="Введите фамилию">
+                    </div>
+                    <div class="form-group row">
+                        
+                        <input name="age" class="form-control" id="age" placeholder="Введите возраст">
+                    </div>
+                    <div class="form-group row">
+                        
+                        <input name="passport" class="form-control" id="passport" placeholder="Введите номер и серию паспорта">
+                    </div>
+                    <div class="form-group row">
+                        
+                        <input name="monthsWorkedOut" class="form-control" id="monthsWorkedOut" placeholder="Введите число отработанных месяцев">
+                    </div>
+                    <div class="form-group row">
+                        
+                        <input name="position" class="form-control" id="position" placeholder="Введите должностной ранг">
+                    </div>
+
+
+                    <div class="row m-3">
+                        <div class="col-sm">
+                            <h4>Операции</h4>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-md-4 col-sm-3 col-xs-6 text-center">
+                            <label for="position">Заполните все поля</label>
+                            <button id="btnAddIfNotExists" name="submitButton" value="Add" type="submit" class="btn btn-primary minimum">Добавить работника</button>
+                        </div>
+                        <div class="col-md-5 col-sm-3 col-xs-6 text-center">
+                            <label for="position">Укажите паспорт и число отработанных месяцев</label>
+                            <button id="btnUpdate" name="submitButton" value="Update" type="submit" class="btn btn-primary minimum">Обновить отработанное время</button>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+                            <label for="position">Укажите паспорт работника</label>
+                            <button id="btnRemoveAllNames" name="submitButton" value="Remove" type="submit" class="btn btn-primary minimum">Удалить работника</button>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+        <div class="row m-3">
+            <div class="col-sm">
+                <label for="errorField">Консоль</label>
+                <input name="errorField" readonly class="form-control" id="errorField" placeholder=@Model.errorText>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+
+    .margin {
+        margin: 10px; /* Отступы вокруг */
+    }
+
+    .width {
+        align-items: stretch;
+    }
+
+    .minimum {
+        min-width: 100%;
+    }
+</style>
+<script>
+
+    let input = document.getElementsByName("addName")[0]
+
+    input.addEventListener('input', () => {
+        input.value = input.value.replace(/[^A-Za-zА-Яа-яЁё]/, '');
+    });
+
+    let input2 = document.getElementsByName("addSecondName")[0]
+
+    input2.addEventListener('input', () => {
+        input2.value = input2.value.replace(/[^A-Za-zА-Яа-яЁё]/, '');
+    });
+
+    let input3 = document.getElementsByName("age")[0]
+
+    input3.addEventListener('input', () => {
+        input3.value = input3.value.replace(/[^0-9.]/g, '');
+    });
+
+    let input4 = document.getElementsByName("passport")[0]
+
+    input4.addEventListener('input', () => {
+        input4.value = input4.value.replace(/[^0-9.]/g, '');
+    });
+
+    let input5 = document.getElementsByName("monthsWorkedOut")[0]
+
+    input5.addEventListener('input', () => {
+        input5.value = input5.value.replace(/[^0-9.]/g, '');
+    });
+
+    let input6 = document.getElementsByName("position")[0]
+
+    input6.addEventListener('input', () => {
+        input6.value = input6.value.replace(/[^0-9.]/g, '');
+    });
+</script>
+
+
+
+
+    

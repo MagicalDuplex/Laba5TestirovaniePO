@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebForm", "WebForm\WebForm.csproj", "{81946878-6827-4E49-86EA-C0E272D7A014}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HumanResourcesDepartment", "HumanDepartment\HumanResourcesDepartment.csproj", "{1ACACC56-3B71-40FE-BB39-7B906ADA6C8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81946878-6827-4E49-86EA-C0E272D7A014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81946878-6827-4E49-86EA-C0E272D7A014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81946878-6827-4E49-86EA-C0E272D7A014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81946878-6827-4E49-86EA-C0E272D7A014}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ACACC56-3B71-40FE-BB39-7B906ADA6C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ACACC56-3B71-40FE-BB39-7B906ADA6C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ACACC56-3B71-40FE-BB39-7B906ADA6C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ACACC56-3B71-40FE-BB39-7B906ADA6C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ABA4444C-B3F6-45BC-BF61-050BB36ACD52}
+	EndGlobalSection
+EndGlobal
