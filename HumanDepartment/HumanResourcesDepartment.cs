@@ -59,8 +59,6 @@ namespace HumanResourcesDepartment
 
         }
 
-        
-
         public void UpdateWorkedOutHours(Worker worker)
         {
             if (worker.passport != null)
@@ -100,8 +98,6 @@ namespace HumanResourcesDepartment
             }
         }
 
-        
-
         public bool Exists(Worker worker)
         {
             return _workers.Contains(worker);
@@ -109,7 +105,9 @@ namespace HumanResourcesDepartment
 
         public void RemoveIfExists(Worker worker)
         {
-            _workers.Remove(worker);
+            if (Exists(worker))
+                _workers.Remove(worker);
+            else errorText = "WorkerNotExist";
         }
 
         public void RemoveWithpassport(string passport)

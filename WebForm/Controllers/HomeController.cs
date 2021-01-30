@@ -42,10 +42,8 @@ namespace WebForm.Controllers
                 case "Update":
                     _es.GetHumanDepartment().UpdateWorkedOutHours(new Worker(model.addName, model.addSecondName, model.age, model.monthsWorkedOut, model.position, model.passport));
 
-
                     return RedirectToAction("Index");
                 default:
-                    
                     return (View());
             }
         }
@@ -55,9 +53,6 @@ namespace WebForm.Controllers
             var found = _es.GetHumanDepartment();
             return View(found);
         }
-
-        
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
